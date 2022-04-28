@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CustomerData.Models.Customer>
+
+    @{
+        ViewBag.Title = "Customers";
+    }
+
+    <h2>Customers List</h2>
+
+    <p>
+        @Html.ActionLink("New Customer", "New")
+    </p>
+    @if(!Model.Any())
+    {
+        <h2>There are currently no customers.</h2>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+            </tr>
+            @foreach(var customer in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => customer.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => customer.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => customer.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => customer.Phone)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=customer.Id, action="edit" }) |
+                        @Html.ActionLink("Details", "Details", new { id=customer.Id,  }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=customer.Id })
+                    </td>
+                </tr>        
+            }
+        </table>
+    }
