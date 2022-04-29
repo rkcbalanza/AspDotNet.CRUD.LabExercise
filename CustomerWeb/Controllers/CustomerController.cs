@@ -23,7 +23,7 @@ namespace CustomerWeb.Controllers
         public IActionResult Details(int id)
         {
             var opera = this._customerRepository.FindByPrimaryKey(id);
-            ViewData["Opera"] = opera;
+            ViewData["Customer"] = opera;
             return View();
         }
 
