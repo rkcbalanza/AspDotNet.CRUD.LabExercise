@@ -3,8 +3,8 @@
 @{
     var customer = ViewData["Customer"] as Customer;
 }
-
-<table>
+<h2>Customer Profile</h2>
+<table cellpadding="10" cellspacing="10">
     <tr>
         <td>ID</td>
         <td>@customer.Id</td>
@@ -26,3 +26,4 @@
         <td>@customer.Phone</td>
     </tr>
 </table>
+<h4>@Html.ActionLink("Back","Index")</h4>
